@@ -1,6 +1,10 @@
--- Table: public.candidat
+ public.test;
 
--- DROP TABLE IF EXISTS public.candidat;
+CREATE TABLE public.desistement (
+	id_candidat varchar NULL,
+	nom varchar NULL,
+    CONSTRAINT candidat_pkey PRIMARY KEY (id_candidat)
+);
 
 CREATE TABLE IF NOT EXISTS public.candidat
 (
@@ -23,4 +27,7 @@ CREATE TABLE IF NOT EXISTS public.candidat
 TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.candidat
+    OWNER to postgres;
+
+ALTER TABLE IF EXISTS public.desistement
     OWNER to postgres;
