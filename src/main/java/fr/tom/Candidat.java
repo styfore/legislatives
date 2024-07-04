@@ -11,6 +11,7 @@ import java.util.List;
 @Setter
 @Entity
 @EqualsAndHashCode(of = {"idCandidat"})
+
 public class Candidat {
 
     @Id
@@ -30,6 +31,9 @@ public class Candidat {
     @Enumerated(EnumType.STRING)
     private Etat elu;
 
+    @Transient
+    private int nbVoixSecondTour;
+
 
     public boolean isElu(){
         return Etat.OUI.equals(elu);
@@ -38,5 +42,21 @@ public class Candidat {
         return Etat.QUALIF.equals(elu);
     }
 
+    public boolean isGauche(){
+        return Tendance.GAUCHE.equals( getTendance());
+    }
+    public boolean isCentre(){
+        return Tendance.CENTRE.equals( getTendance());
+    }
+    public boolean isDroite(){
+        return Tendance.DROITE.equals( getTendance());
+    }
+    public boolean isExtremeDroite(){
+        return Tendance.EXTREME_DROITE.equals( getTendance());
+    }
+
+    public Tendance getTendance(){
+        return  bloc.getTendance();
+    }
 
 }
