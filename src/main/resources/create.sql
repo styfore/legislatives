@@ -3,7 +3,7 @@
 CREATE TABLE public.desistement (
 	id_candidat varchar NULL,
 	nom varchar NULL,
-    CONSTRAINT candidat_pkey PRIMARY KEY (id_candidat)
+    CONSTRAINT desistement_pkey PRIMARY KEY (id_candidat)
 );
 
 CREATE TABLE IF NOT EXISTS public.candidat
